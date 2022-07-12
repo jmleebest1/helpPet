@@ -133,7 +133,7 @@
     <div class="join_step2"> </div>
 
     <p class="text_join">회원정보 입력<span><em>(필수)</em> <a class="text_join_a">입력사항을 꼭 작성해주시기 바랍니다.</a></span></p>
-    <form action="" method="post" name="joinForm" id="joinForm"  >
+    <form action="/user/userJoin" method="post" name="joinForm" id="joinForm"  >
 
         <div class="form_join">
             <ul class="form_join_ul">
@@ -162,12 +162,12 @@
                     </div>
                 </li>
 
-                <li class="form_join_li">
-                    <div class="inputbox _btn">
-                        <input type="password" name="userRePw" id="reuserpw" class="input_join" maxlength="20" placeholder="비밀번호확인" >
-                        <label class="inputbox_label">비밀번호 확인<em id="list4">(필수)</em></label>
-                    </div>
-                </li>
+<!--                <li class="form_join_li">-->
+<!--                    <div class="inputbox _btn">-->
+<!--                        <input type="password" name="userRePw" id="reuserpw" class="input_join" maxlength="20" placeholder="비밀번호확인" >-->
+<!--                        <label class="inputbox_label">비밀번호 확인<em id="list4">(필수)</em></label>-->
+<!--                    </div>-->
+<!--                </li>-->
 
 
 
@@ -188,7 +188,7 @@
 
                 <li class="form_join_li">
                     <div class="inputbox _btn">
-                        <input type="tel" name="userHandPhone" id="userphone" class="input_join"  placeholder="하이픈(-)없이 입력해주세요" >
+                        <input type="tel" name="userPhoneNum" id="userphone" class="input_join"  placeholder="하이픈(-)없이 입력해주세요" >
                         <label class="inputbox_label">핸드폰<em id="list7">(필수)</em></label>
                     </div>
                 </li>
@@ -215,11 +215,30 @@
 
 
 </div>
-<script>
 
-</script>
 
 </body>
+<script>
+    function send(){
+        $.ajax(
+            {
+                type: "POST",
+                url: "user/userJoin",
+                async: true,
+                dataType: "text",
+                success: function(result){
+                    if(result == 300){
+                        alert("중복된 아이디입니다.")
+                        return;
+                    } else{
+                        document.joinForm.submit();
+                        location.href = "/board/showMyPet";
+                    }
+                }
 
+            });
+    }
+</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/static/js/user/userJoin.js"></script>
 </html>
