@@ -19,17 +19,21 @@ public class UserController {
     
     @GetMapping("userJoin")
     public void userJoin(){}
+
+    @GetMapping("userLogin")
+    public void userLogin(){}
     
     //아이디 중복확인 및 회원 등록
-    @ResponseBody
     @PostMapping("userJoin")
-    public int join(UserVO userVO){
-        int count = 0;
-        count = userService.idCheck(userVO.getUserId());
-        if(count >= 1){
-            return 300;
-        } else
-            return userService.join(userVO);
+    public String join(UserVO userVO){
+//        int count = 0;
+//        count = userService.idCheck(userVO.getUserId());
+//        if(count >= 1){
+//            return 300;
+//        } else
+//            return
+            userService.join(userVO);
+            return "user/userLogin";
 //        log.info(String.valueOf(userService.join(userVO)));
     }
 

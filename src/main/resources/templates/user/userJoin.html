@@ -206,7 +206,7 @@
 
         </div>
         <div class="form_joinbtn">
-            <input type="button" value="회원가입" class="form_joinbtn_button" onclick= "send()") >
+            <input type="submit" value="회원가입" class="form_joinbtn_button">
         </div>
 
 
@@ -219,25 +219,25 @@
 
 </body>
 <script>
-    function send(){
-        $.ajax(
-            {
-                type: "POST",
-                url: "user/userJoin",
-                async: true,
-                dataType: "text",
-                success: function(result){
-                    if(result == 300){
-                        alert("중복된 아이디입니다.")
-                        return;
-                    } else{
-                        document.joinForm.submit();
-                        location.href = "/board/showMyPet";
-                    }
-                }
-
-            });
-    }
+    // function send(){
+    //     $.ajax(
+    //         {
+    //             type: "POST",
+    //             url: "user/userJoin",
+    //             async: true,
+    //             dataType: "text",
+    //             success: function(result){
+    //                 if(result == 300){
+    //                     alert("중복된 아이디입니다.")
+    //                     return;
+    //                 } else{
+    //                     document.joinForm.submit();
+    //                     location.href = "/board/showMyPet";
+    //                 }
+    //             }
+    //
+    //         });
+    // }
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/static/js/user/userJoin.js"></script>
