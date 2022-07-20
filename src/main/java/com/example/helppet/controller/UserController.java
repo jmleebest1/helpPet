@@ -22,6 +22,9 @@ public class UserController {
 
     @GetMapping("userLogin")
     public void userLogin(){}
+
+    @GetMapping("userMyPage")
+    public void userMyPage(){}
     
     //아이디 중복확인 및 회원 등록
     @PostMapping("userJoin")
